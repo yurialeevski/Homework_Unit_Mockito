@@ -1,4 +1,4 @@
-package ru.skypro.homework.springdatajpa.service;
+package ru.skypro.homework.springdatajpa.model;
 
 import ru.skypro.homework.springdatajpa.model.Position;
 

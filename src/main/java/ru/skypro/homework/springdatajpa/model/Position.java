@@ -31,4 +31,12 @@ public class Position {
     public void setRole(String role) {
         this.role = role;
     }
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "id=" + id +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }

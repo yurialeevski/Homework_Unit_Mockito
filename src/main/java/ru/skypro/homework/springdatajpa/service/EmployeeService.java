@@ -11,6 +11,7 @@ import ru.skypro.homework.springdatajpa.dto.EmployeeDTO;
 import ru.skypro.homework.springdatajpa.dto.EmployeeViewDTO;
 import ru.skypro.homework.springdatajpa.exceptions.IncorrectEmployeeIdException;
 import ru.skypro.homework.springdatajpa.model.Employee;
+import ru.skypro.homework.springdatajpa.model.EmployeeView;
 import ru.skypro.homework.springdatajpa.repository.EmployeeRepository;
 
 import java.util.ArrayList;
@@ -25,6 +26,10 @@ public class EmployeeService {
 
     public EmployeeService(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
+    }
+
+    public int getMinEmployeeSalary() {
+        return employeeRepository.getMinSalary();
     }
 
     public List<EmployeeDTO> getAllWithMaxSalary() {
@@ -53,7 +58,7 @@ public class EmployeeService {
 
     public EmployeeView findFullInfoById(Integer id) {
         logger.info("DTO is not used: Getting full info by id directly from employeeView");
-        System.out.println("id = " + id);
+        logger.info("id = " + id);
         Optional<EmployeeView> employeeView = employeeRepository.findByIdEmployeeView(id);
 
         return employeeView.orElseThrow(() -> new IncorrectEmployeeIdException("id: " + id));
