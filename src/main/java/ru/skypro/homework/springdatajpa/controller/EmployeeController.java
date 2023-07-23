@@ -5,7 +5,7 @@ import ru.skypro.homework.springdatajpa.dto.EmployeeDTO;
 import ru.skypro.homework.springdatajpa.dto.EmployeeViewDTO;
 import ru.skypro.homework.springdatajpa.model.Employee;
 import ru.skypro.homework.springdatajpa.service.EmployeeService;
-import ru.skypro.homework.springdatajpa.service.EmployeeView;
+import ru.skypro.homework.springdatajpa.model.EmployeeView;
 
 import java.util.List;
 
@@ -16,6 +16,10 @@ public class EmployeeController {
 
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
+    }
+    @GetMapping("/salary/min")
+    public int showMinEmployeeSalary() {
+        return employeeService.getMinEmployeeSalary();
     }
 
     @GetMapping("/with-greatest-salary")
@@ -115,10 +119,7 @@ public class EmployeeController {
     public int showSumEmployeeSalary() {
         return employeeService.getSumEmployeeSalary();
     }
-    @GetMapping("/salary/min")
-    public int showMinEmployeeSalary() {
-        return employeeService.getMinEmployeeSalary();
-    }
+
     @GetMapping("/salary/max")
     public int showMaxEmployeeSalary() { return employeeService.getMaxEmployeeSalary();}
     @GetMapping("/high-salary")

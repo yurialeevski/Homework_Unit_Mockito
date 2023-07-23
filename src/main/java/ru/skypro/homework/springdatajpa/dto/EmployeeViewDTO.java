@@ -1,6 +1,8 @@
 package ru.skypro.homework.springdatajpa.dto;
 
-import ru.skypro.homework.springdatajpa.service.EmployeeView;
+import ru.skypro.homework.springdatajpa.model.EmployeeView;
+
+import java.util.Objects;
 
 public class EmployeeViewDTO {
     private String name;
@@ -39,5 +41,27 @@ public class EmployeeViewDTO {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeeViewDTO{" +
+                "name='" + name + '\'' +
+                ", salary=" + salary +
+                ", role='" + role + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EmployeeViewDTO viewDTO = (EmployeeViewDTO) o;
+        return name.equals(viewDTO.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

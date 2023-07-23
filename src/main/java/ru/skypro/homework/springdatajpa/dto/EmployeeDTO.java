@@ -61,4 +61,14 @@ public class EmployeeDTO {
     public void setPosition(Position position) {
         this.position = position;
     }
+
+    @Override
+    public String toString() {
+        return "EmployeeDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                ", position=" + position +
+                '}';
+    }
 }

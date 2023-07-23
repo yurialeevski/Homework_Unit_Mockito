@@ -51,4 +51,13 @@ public class Employee {
         this.position = position;
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                ", position=" + position +
+                '}';
+    }
 }
